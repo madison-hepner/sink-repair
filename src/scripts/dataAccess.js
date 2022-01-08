@@ -8,6 +8,19 @@ const applicationState = {
             "neededBy": "2021-08-27"
         }
     ],
+
+    plumbers: [
+        {
+            "id": 1,
+            "name": "Maude"
+      
+         },
+        {
+            "id": 2,
+            "name": "Merle"
+        }
+        
+    ]
 }
 
 const API = "http://localhost:8088"
@@ -21,6 +34,16 @@ export const fetchRequests = () => {
                 applicationState.requests = serviceRequests
             }
         )
+}
+
+    export const plumbers = () => {
+        return fetch(`${API}/plumbers`)
+            .then(response => response.json())
+            .then(
+             (avlPlumbers) => {
+                applicationState.plumbers = avlPlumbers
+        }
+    )
 }
 
 export const getRequests = () => {

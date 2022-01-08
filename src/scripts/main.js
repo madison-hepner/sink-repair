@@ -2,15 +2,13 @@ import { SinkRepair } from "./SinkRepair.js"
 import { fetchRequests } from "./dataAccess.js"
 
 
-
 const mainContainer = document.querySelector("#container")
+const renderAllHTML = () => {
+    mainContainer.innerHTML = SinkRepair()
+}
 
-mainContainer.addEventListener(
-    "stateChanged",
-    customEvent => {
-        render()
-    }
-)
+renderAllHTML()
+
 
 const render = () => {
     fetchRequests().then(

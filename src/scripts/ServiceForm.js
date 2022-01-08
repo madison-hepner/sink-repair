@@ -1,4 +1,5 @@
-import { sendRequest } from "./dataAccess.js"
+import { sendRequest, plumbers } from "./dataAccess.js"
+
 
 
 const mainContainer = document.querySelector("#container")
@@ -23,6 +24,8 @@ mainContainer.addEventListener("click", clickEvent => {
         sendRequest(dataToSendToAPI)
     }
 })
+
+
 
 
 export const ServiceForm = () => {
@@ -50,6 +53,16 @@ export const ServiceForm = () => {
     return html
 }
 
-
-
-
+export const Plumbers = () => {
+    let html =
+        `<select class="plumbers" id="plumbers">
+        <option value="">Choose</option>
+        ${
+            plumbers.map(
+                plumber => {
+                return `<option value="${request.id}--${plumber.id}">${plumber.name}</option>`
+            }
+        ).join("")
+    }
+</select>`
+}
